@@ -16,30 +16,31 @@ public class UserTest {
 	@Test
 	void 正常系_ユーザー管理コード登録参照() {
 		user.setCode("1234");
-		assertThat("1234").isEqualTo(user.getCode());
+		assertThat(user.getCode()).isEqualTo("1234");
 	}
 	
 	@Test
 	void 正常系_名前登録参照() {
 		user.setName("東北タロウ");
-		assertThat("東北タロウ").isEqualTo(user.getName());
+		assertThat(user.getName()).isEqualTo("東北タロウ");
 	}
 	
 	@Test
 	void 正常系_年齢登録参照() {
 		user.setAge(21);
-		assertThat(21).isEqualTo(user.getAge());
+		assertThat(user.getAge()).isEqualTo(21);
 	}
 	
 	@Test
 	void 異常系_範囲外年齢登録() {
 		user.setAge(-20);
-		assertThat(-1).isEqualTo(user.getAge());
+		assertThat(user.getAge()).isEqualTo(-1);
 	}
 	
 	@Test
 	void 異常系_年齢() {
-		
+		user.setAge(2000);
+		assertThat(user.getAge()).isEqualTo(2000);
 	}
 	
 	@AfterAll
